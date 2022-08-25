@@ -1,6 +1,6 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { plainToClass } from 'class-transformer';
-import { PaginateUserDto, UserDto } from '../../dtos';
+import { PaginateUserDto } from '../../dtos';
 import { UsersRepository } from '../../repositories/users.repository';
 import { UserPaginateQuery } from './user-paginate.query';
 
@@ -10,13 +10,8 @@ export class UserPaginateHandler implements IQueryHandler<UserPaginateQuery> {
 
   async execute({ userPaginate }: UserPaginateQuery): Promise<PaginateUserDto> {
     const result = await this.repository.paginate(userPaginate);
-    return {
-      ...result,
-      data: result.data.map((user) =>
-        plainToClass(UserDto, user, {
-          excludeExtraneousValues: true,
-        }),
-      ),
-    };
+    return plainToClass(PaginateUserDto, result, {
+      excludeExtraneousValues: true,
+    });
   }
 }

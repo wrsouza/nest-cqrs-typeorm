@@ -15,7 +15,7 @@ export class UserCreateHandler implements ICommandHandler<UserCreateCommand> {
       const newUser = this.repository.create();
       newUser.name = userCreate.name;
       newUser.email = userCreate.email;
-      newUser.password = await bcrypt.hash(userCreate.password, 8);
+      newUser.password = bcrypt.hashSync(userCreate.password, 8);
 
       await this.repository.save(newUser);
       return plainToClass(UserDto, newUser, { excludeExtraneousValues: true });
