@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import {
   registerDecorator,
   ValidationArguments,
@@ -16,13 +16,17 @@ export class UniqueEmailValidation implements ValidatorConstraintInterface {
   constructor(private repository: UsersRepository) {}
 
   async validate(email: string, args: ValidationArguments) {
-    const { context } = args.object as BaseRequest;
-    const where = { email };
-    if (context?.params?.id) {
-      where['id'] = Not(context?.params?.id);
+    try {
+      const where = { email };
+      const { context } = args.object as BaseRequest;
+      if (context.params.id) {
+        where['id'] = Not(context.params.id);
+      }
+      const user = await this.repository.findOneBy(where);
+      return !user;
+    } catch (err) {
+      throw new InternalServerErrorException(err.message);
     }
-    const user = await this.repository.findOneBy(where);
-    return !user;
   }
 
   defaultMessage() {

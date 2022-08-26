@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import {
   registerDecorator,
   ValidationOptions,
@@ -13,9 +13,12 @@ export class UserExistsValidation implements ValidatorConstraintInterface {
   constructor(private repository: UsersRepository) {}
 
   async validate(id: string) {
-    const user = await this.repository.findOneBy({ id });
-    console.log(user);
-    return !!user;
+    try {
+      const user = await this.repository.findOneBy({ id });
+      return !!user;
+    } catch (err) {
+      throw new InternalServerErrorException(err.message);
+    }
   }
 
   defaultMessage() {

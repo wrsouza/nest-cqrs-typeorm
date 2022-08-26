@@ -1,3 +1,4 @@
+import { InternalServerErrorException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Not } from 'typeorm';
 import { UsersRepository } from '../../../../../src/app/users/repositories/users.repository';
@@ -93,6 +94,22 @@ describe('UniqueEmailValidation', () => {
       }
       expect(findSpy).toHaveBeenCalledWith(where);
       expect(result).toBe(status);
+    });
+
+    it('should throw an InternalServerError', async () => {
+      jest
+        .spyOn(repository, 'findOneBy')
+        .mockRejectedValueOnce(
+          new InternalServerErrorException('database error message'),
+        );
+
+      try {
+        const { email } = user;
+        await validation.validate(email, emptyValidationArguments);
+      } catch (err) {
+        expect(err).toBeInstanceOf(InternalServerErrorException);
+        expect(err.message).toBe('database error message');
+      }
     });
   });
 
