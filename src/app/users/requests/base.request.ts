@@ -1,6 +1,6 @@
 import { Allow } from 'class-validator';
 
-export abstract class BaseRequest {
+export class BaseRequest {
   @Allow()
   context?: {
     params: any;
