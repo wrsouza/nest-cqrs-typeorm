@@ -157,7 +157,7 @@ describe('UsersController', () => {
   });
 
   describe('update', () => {
-    it('should return a user updated', async () => {
+    it('should return an user updated', async () => {
       const commandBusSpy = jest
         .spyOn(commandBus, 'execute')
         .mockResolvedValueOnce(expectedUpdatedUser);
