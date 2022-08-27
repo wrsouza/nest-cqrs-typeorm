@@ -15,7 +15,7 @@ export const makeUserList = (total: number) => {
       email: faker.internet.email(),
       password: faker.internet.password(8),
       createdAt: randomDate,
-      createAt: randomDate,
+      updatedAt: randomDate,
     });
   }
   return list;
