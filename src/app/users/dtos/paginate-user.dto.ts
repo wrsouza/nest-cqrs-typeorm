@@ -22,13 +22,16 @@ export class PaginateUserDto {
 
   @ApiProperty()
   @Expose()
+  @Type(() => Number)
   page: number;
 
   @ApiProperty()
   @Expose()
+  @Type(() => Number)
   perPage: number;
 
   @ApiProperty()
   @Expose()
+  @Type(() => Number)
   total: number;
 }
