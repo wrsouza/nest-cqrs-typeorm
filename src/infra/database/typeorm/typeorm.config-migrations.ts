@@ -4,7 +4,7 @@ import { DataSource, DataSourceOptions } from 'typeorm';
 dotenv.config();
 
 const typeOrmConfig = new DataSource({
-  type: 'postgres',
+  type: process.env.CONNECTION_TYPE,
   url: process.env.CONNECTION_STRING,
   entities: [`${__dirname}/../../../**/*.entity{.js,.ts}`],
   synchronize: false,
