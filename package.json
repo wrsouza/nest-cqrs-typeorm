@@ -21,7 +21,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json --passWithNoTests --no-cache --runInBand",
     "test:staged": "jest --passWithNoTests --no-cache --runInBand --findRelatedTests",
-    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -d src/infra/database/typeorm/typeorm.config-migrations.ts",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -d ./src/infra/database/typeorm/typeorm.config-migrations.ts",
     "migration:generate": "npm run typeorm -- migration:generate",
     "migration:run": "npm run typeorm -- migration:run",
     "migration:revert": "npm run typeorm -- migration:revert"
@@ -37,13 +37,14 @@
     "bcrypt": "^5.0.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "dotenv": "^16.0.1",
     "joi": "^17.6.0",
     "lodash.orderby": "^4.6.0",
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
-    "typeorm": "^0.3.7",
+    "typeorm": "0.3.7",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
