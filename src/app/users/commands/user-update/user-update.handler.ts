@@ -14,10 +14,11 @@ export class UserUpdateHandler implements ICommandHandler<UserUpdateCommand> {
     try {
       const user = await this.repository.findOneBy({ id });
       Object.keys(userUpdate).forEach((key) => {
+        let value = userUpdate[key];
         if (key === 'password') {
-          user.password = bcrypt.hashSync(userUpdate.password, 8);
+          value = bcrypt.hashSync(userUpdate.password, 8);
         }
-        user[key] = userUpdate[key];
+        user[key] = value;
       });
       await this.repository.save(user);
       return plainToClass(UserDto, user, { excludeExtraneousValues: true });

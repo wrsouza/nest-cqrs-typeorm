@@ -58,6 +58,10 @@ describe('UsersController (e2e)', () => {
 
       const response = await request.delete(`/users/${user.id}`);
       expect(response.statusCode).toBe(204);
+
+      const { id } = user;
+      const userDeleted = await repository.findOneBy({ id });
+      expect(userDeleted).toBeNull();
     });
 
     it('should return validation user not exists', async () => {

@@ -7,6 +7,7 @@ import { UsersRepository } from '../../../src/app/users/repositories/users.repos
 import { makeUserList } from './users.testcases';
 import { useContainer } from 'class-validator';
 import { ContextInterceptor } from '../../../src/infra/interceptors/context.interceptor';
+import * as bcrypt from 'bcrypt';
 
 describe('UsersController (e2e)', () => {
   let app: INestApplication;
@@ -66,6 +67,18 @@ describe('UsersController (e2e)', () => {
           name: userData.name,
           email: userData.email,
         }),
+      );
+
+      const { email } = userData;
+      const userCreated = await repository.findOneBy({ email });
+      expect(userCreated).toBeTruthy();
+      expect(userCreated).toEqual(
+        expect.objectContaining({
+          name: userData.name,
+        }),
+      );
+      expect(bcrypt.compareSync(userData.password, userCreated.password)).toBe(
+        true,
       );
     });
 
