@@ -1,0 +1,43 @@
+name: build-test
+on:
+  push:
+    branches: [master]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install modules
+        run: npm install --silent
+
+      - name: Run Lint
+        run: npx lint-staged
+
+      - name: Run unit tests with coverage
+        run: |
+          SUMMARY="$(npm run test:cov --coverageReporters=text-summary | tail -3 | head -1)"
+          TOKENS=($SUMMARY)
+          echo "COVERAGE=$(echo ${TOKENS[2]})" >> $GITHUB_ENV
+      - name: Create Coverage Badge
+        uses: schneegans/dynamic-badges-action@v1.1.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 9b7d5aa0fe6ff3af0f45f9863f5e86a9
+          filename: nest-cqrs-typeorm__master.json
+          label: coverage
+          message: ${{ env.COVERAGE }}%
+          namedLogo: jest
+          color: blue
+          logoColor: lightblue
