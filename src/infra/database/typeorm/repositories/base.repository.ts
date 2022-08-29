@@ -18,12 +18,16 @@ export abstract class BaseRepository<T> extends Repository<T> {
 
     const take = perPage || 15;
     const skip = ((page || 1) - 1) * take;
-    const order = sort
-      ? sort.charAt(0) === '-'
-        ? sort.substring(1)
-        : sort
-      : 'id';
-    const direction = sort ? (sort.charAt(0) === '-' ? 'DESC' : 'ASC') : 'DESC';
+
+    let order = sort ? sort : 'id';
+    if (order.charAt(0) === '-') {
+      order = order.substring(1);
+    }
+
+    let direction = 'ASC';
+    if (sort && sort.charAt(0) === '-') {
+      direction = 'DESC';
+    }
 
     let where = {};
     if (search && type) {

@@ -42,7 +42,7 @@ export class UsersController {
   async index(
     @Query() userPaginate: UserPaginateRequest,
   ): Promise<PaginateUserDto> {
-    return await this.queryBus.execute(new UserPaginateQuery(userPaginate));
+    return this.queryBus.execute(new UserPaginateQuery(userPaginate));
   }
 
   @Post()
@@ -53,7 +53,7 @@ export class UsersController {
   })
   @HttpCode(201)
   async store(@Body() userCreate: UserCreateRequest): Promise<UserDto> {
-    return await this.commandBus.execute(new UserCreateCommand(userCreate));
+    return this.commandBus.execute(new UserCreateCommand(userCreate));
   }
 
   @Get('/:id')
@@ -64,7 +64,7 @@ export class UsersController {
   })
   @HttpCode(200)
   async show(@Param() { id }: UserParamRequest): Promise<UserDto> {
-    return await this.queryBus.execute(new UserShowQuery(id));
+    return this.queryBus.execute(new UserShowQuery(id));
   }
 
   @Put('/:id')
@@ -78,7 +78,7 @@ export class UsersController {
     @Param() { id }: UserParamRequest,
     @Body() userUpdate: UserUpdateRequest,
   ): Promise<UserDto> {
-    return await this.commandBus.execute(new UserUpdateCommand(id, userUpdate));
+    return this.commandBus.execute(new UserUpdateCommand(id, userUpdate));
   }
 
   @Delete('/:id')
