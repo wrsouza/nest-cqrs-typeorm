@@ -47,6 +47,19 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Migrations
+
+```bash
+# generate migration script
+$ npm run migration:generate migrations/nome_da_migracao
+
+# run migration scripts
+$ npm run migration:run
+
+# revert migration
+$ npm run migration:revert
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
