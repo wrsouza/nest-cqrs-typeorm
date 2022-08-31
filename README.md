@@ -6,27 +6,13 @@
 
 <p align="center">
 
-![build-test](https://github.com/wrsouza/nest-cqrs-typeorm/actions/workflows/build-test.yml/badge.svg)
-
-![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/wrsouza/9b7d5aa0fe6ff3af0f45f9863f5e86a9/raw/nest-cqrs-typeorm__master.json)
+![build-test](https://github.com/wrsouza/nest-cqrs-typeorm/actions/workflows/build-test.yml/badge.svg)  ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/wrsouza/9b7d5aa0fe6ff3af0f45f9863f5e86a9/raw/nest-cqrs-typeorm__master.json)
 
 </p>
 
 <p align="center">
   
-  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)
-  
-  [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)
-  
-  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=bugs)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)
-  
-  [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)
-  
-  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)
-  
-  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)
-  
-  [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=coverage)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)
+  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=bugs)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)  [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)  [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=wrsouza_nest-cqrs-typeorm&metric=coverage)](https://sonarcloud.io/summary/new_code?id=wrsouza_nest-cqrs-typeorm)
   
 </p>
   
